@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover effect</title>
+
+    <style>
+        body {background: linear-gradient(to bottom, rgba(224, 18, 252, 0.63), transparent);}
+        .box-wrap {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            margin-left: 5px;
+        }
+        .box {
+            position: relative;
+            width: 400px; height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid #283593;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+        .box:before {
+            content:''; width: 500px; height: 500px;
+            background: rgba(0,0,0,0.7); 
+            position: absolute;
+            top: 0; right: 0; left:auto;
+            z-index: 40;
+            transform-origin: 100% 0;
+            transform: rotate(53.1deg) translatex(-280px);
+            transition: all 0.35s ease-in-out;
+        }
+        .box:after {
+            content:''; width: 500px; height: 500px;
+            background: rgba(0,0,0,0.7); 
+            position: absolute;
+            bottom: 0; right: 0; left:0;
+            z-index: 40;
+            transform-origin: 0 100%;
+            transform: rotate(53.1deg) translatex(280px);
+            transition: all 0.35s ease-in-out;
+        }
+        .box img {
+            width: 100%;
+        }
+        .box .info {
+            position: absolute; left: 50%; top: 50%;
+            z-index: 50;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #000;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .box .info h3 {
+            font-size: 28px;
+            line-height: 40px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #000;
+        }
+        .box:hover .info {
+            opacity: 1;
+        }
+        .box:hover:before {
+            transform: rotate(53.1deg) translatex(0px);
+        }
+        .box:hover:after {
+	transform: rotate(53.1deg) translatex(0px);
+}
+    </style>
+</head>
+<body>
+    <div class="box-wrap">
+        <div class="box">
+            <div class="img">
+                <img src=https://cdn.dribbble.com/users/410304/screenshots/1773881/fruit_animation.gif alt="hover effect">
+            </div>
+            <div class="info">
+                <h3>Apple</h3>
+                <p>입니다.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
